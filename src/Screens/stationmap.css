@@ -1,0 +1,36 @@
+
+.rootdiv{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.dot {
+    padding-left:1px;
+    margin-left: 20px;
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .pdot{
+    margin: 40px 300px 0px 0px;
+  }
+
+/* .heading2{
+    width:300px;
+    margin-right: 10rem;
+} */ 
+
+.rootdiv2{
+ overflow-x: hidden;
+
+ flex-grow: 3;
+}
+.slot{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-between;
+    align-items: center;
+}

@@ -1,0 +1,29 @@
+.Signup{
+    background-color: grey;
+    height:100%;
+    width:70%;
+}
+.whole-component{
+    margin-top: 5em;
+}
+
+.login2{
+    color: grey;
+}
+.usrnm{
+    width: 80%;
+    margin-left: 1em;
+    margin-top: 2em;
+
+}
+.submission{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.first-field{
+    padding-top:0.5em ;
+}
+.Link-color{
+    color: black;
+}

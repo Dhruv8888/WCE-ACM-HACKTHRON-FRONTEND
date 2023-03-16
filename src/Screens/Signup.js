@@ -1,6 +1,6 @@
 import * as React from "react";
 import { loadBlockchainData, loadWeb3 } from "../Web3helpers";
-import img1 from '../Images/Car.jpeg'
+// import img1 from '../Images/Car.jpeg'
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import '../Screens/SignUp.css'
@@ -26,7 +26,7 @@ export default function SignUp() {
       alert("please fill all details");
       return;
     }
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
     if (!email.match(mailformat)) {
       alert("please enter valid email address");
       return;
@@ -39,24 +39,7 @@ export default function SignUp() {
       Cookies.set('email', email);
       localStorage.setItem("username", username);
       localStorage.setItem("email", email);
-      const detail={
-        username:username,
-        email:email,
-        password:password
-      }
       navigate("/");
-      const response = await fetch("http://127.0.0.1:8000/register/",{
-        method:'POST',
-        headers:{
-          'Content-type':'application/json'
-        },
-        // body:detail
-        body:JSON.stringify(detail)
-      });
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      } 
-      const res = await response.json();
       window.location.reload();
     } catch (e) {
       console.log(e.message);
@@ -72,35 +55,75 @@ export default function SignUp() {
 
   return (
    <>
-    <div className="whole-component">
+   <section className="vh-100">
+  <div className="container-fluid h-custom">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col-md-9 col-lg-6 col-xl-5">
+        {/*  <img src={img1} className="img-fluid" alt="Sample image"></img> */}
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          className="img-fluid" alt="Sample image"/>
+      </div>
+      <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>    
+          <div className="form-outline mb-4">
+            <input onChange={(e)=>setUsername(e.target.value)}  id="form3Example2" className="form-control form-control-lg"
+              placeholder="Enter a Username" />
+            <label className="form-label" htmlFor="form3Example2">User Name</label>
+          </div>
+          
 
-<div className="container">
- <div className="row">
-   <div className="col-sm">
-     <img src={img1}></img>
-   </div>
+          <div className="form-outline mb-3">
+            <input onChange={(e)=>setEmail(e.target.value)} type="email" id="form3Example3" className="form-control form-control-lg"
+              placeholder="Enter a Email" />
+            <label className="form-label" htmlFor="form3Example3">Email address</label>
+          </div>
 
+        
+          <div className="form-outline mb-2">
+            <input  onChange={(e)=>setPassword(e.target.value)} type="password" id="form3Example4" className="form-control form-control-lg"
+              placeholder="Enter password" />
+            <label className="form-label" htmlFor="form3Example4">Password</label>
+          </div>
+          <div className="d-flex justify-content-between align-items-center">
+            
+          </div>
+  {/* padding-left: 2.5rem; padding-right: 2.5rem; */}
+          <div className="text-center text-lg-start mt-4 pt-2">
+            <button onClick={signUp} type="submit" className="btn btn-primary btn-lg"
+              style={{paddingLeft:"2.5rem",paddingRight:'2.5rem'}}>Submit</button>
+            <p className="small fw-bold mt-2 pt-1 mb-0">Already Resgister? <Link to="/"
+                className="link-danger">Signin</Link></p>
+          </div>
 
-   <div className="col-sm">
-     <div className="Signup">
-<div className="form-group">
-  <div className="first-field">
-<input  onChange={(e)=>setUsername(e.target.value)}  className="form-control usrnm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username"/>
-</div>
-<input  onChange={(e)=>setEmail(e.target.value)} type="email" className="form-control usrnm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-</div>
-<div className="form-group">
-<input onChange={(e)=>setPassword(e.target.value)} type="password" className="form-control usrnm" id="exampleInputPassword1" placeholder="Password"/>
-</div>
-<div className="submission">
-  <button type="submit" className="btn btn-primary" onClick={signUp}>Submit</button>
-</div>
-  Already have a account? <Link className="Link-color" to='/'>Sign Up</Link>
-     </div>
-     </div>
-   </div>
-   </div>
-   </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+
+    <div className="text-white mb-3 mb-md-0">
+      Copyright © 2020. All rights reserved.
+    </div>
+  
+
+    <div>
+      <a href="#!" className="text-white me-4">
+        <i className="fab fa-facebook-f"></i>
+      </a>
+      <a href="#!" className="text-white me-4">
+        <i className="fab fa-twitter"></i>
+      </a>
+      <a href="#!" className="text-white me-4">
+        <i className="fab fa-google"></i>
+      </a>
+      <a href="#!" className="text-white">
+        <i className="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    
+  </div>
+</section>
     </>
   );
 }

@@ -8,6 +8,8 @@ import Header from "./Screens/Header";
 import Stationmap from "./Screens/Stationmap";
 import Wallet from "./Screens/Wallet";
 import Slots from "./Screens/Slots";
+import Success from "./Screens/Success";
+
 
 function App() {
   const email = localStorage.getItem("email");
@@ -23,6 +25,7 @@ function App() {
           <Route path="/Mappage2" element={<Mappage2/>} />
           <Route path="/Wallet" element={<Wallet/>} />
           <Route path="/Slots" element={<Slots/>} />
+          <Route path="/Success" element={<Success/>} />
 
           <Route
             path="/Home"

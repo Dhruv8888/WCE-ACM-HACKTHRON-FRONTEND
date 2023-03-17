@@ -36,7 +36,7 @@ export default function SignIn() {
         console.log("Success");
         Cookies.set('email', email);
         Cookies.set('account', accounts);
-        window.location='/Home'
+        window.location='/Stationmap'
       } else {
         alert("wrong user credintinals or please signup");
       }
